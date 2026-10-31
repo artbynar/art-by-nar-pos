@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#211f1c">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ <meta name="apple-mobile-web-app-title" content="Art By Nar">
+ <link rel="manifest" href="./manifest.webmanifest">
+ <link rel="apple-touch-icon" href="./icon-192.png">
+<title>Art By Nar | Studio POS</title>
+<style>
+:root{--bg:#f6f4f0;--panel:#fff;--ink:#22201f;--muted:#827b74;--line:#e9e4dd;--gold:#b38a4b;--gold2:#ead9bb;--dark:#211f1c;--green:#567d64;--red:#b85a51}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:245px;background:var(--dark);color:#f8f4ed;padding:26px 17px;display:flex;flex-direction:column;gap:25px}.brand{padding:2px 10px 18px;border-bottom:1px solid #49433b}.brand .monogram{width:43px;height:43px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e3c48d;font-family:Georgia,serif;font-size:19px;margin-bottom:12px}.brand h1{font:20px Georgia,serif;margin:0}.brand p{margin:5px 0 0;color:#c9bda9;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#c9c2b7;text-align:left;padding:12px 13px;border-radius:10px;display:flex;gap:12px;align-items:center}.nav button.active,.nav button:hover{background:#3a342c;color:#fff}.nav .ico{width:19px;text-align:center;color:#d7b679}.side-note{margin-top:auto;border:1px solid #49433b;border-radius:12px;padding:13px;color:#c9c2b7;font-size:12px}.side-note strong{display:block;color:#f5e6c8;margin-bottom:5px}
+main{flex:1;min-width:0;padding:30px clamp(18px,3vw,42px) 44px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:28px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.8px;color:var(--gold);font-weight:700}.topbar h2{font:clamp(25px,3vw,34px) Georgia,serif;margin:5px 0 0}.top-right{display:flex;align-items:center;gap:10px}.date-chip{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 12px;color:var(--muted);font-size:12px}.primary{background:var(--dark);color:#fff;border:0;border-radius:9px;padding:11px 15px}.primary:hover{background:#39332b}.secondary{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px;color:var(--ink)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:23px}.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}.stat{padding:18px}.stat-label{color:var(--muted);font-size:12px}.stat-value{font:27px Georgia,serif;margin:9px 0 6px}.stat-foot{font-size:11px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.85fr);gap:17px}.panel{padding:20px;margin-bottom:17px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panel h3{font:19px Georgia,serif;margin:0}.subtle{color:var(--muted);font-size:12px}.text-link{border:0;background:transparent;color:var(--gold);font-weight:600}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th{text-align:left;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.7px;padding:10px 8px;border-bottom:1px solid var(--line)}td{padding:13px 8px;border-bottom:1px solid #f0ece6;white-space:nowrap}tr:last-child td{border-bottom:0}.pill{display:inline-block;border-radius:20px;padding:4px 8px;font-size:11px;background:#f2eee7;color:#7d6544}.pill.paid{background:#e9f2eb;color:#487456}.pill.pending{background:#fbf0dc;color:#936b29}.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.quick{background:#fbfaf8;border:1px solid var(--line);border-radius:11px;padding:14px;text-align:left;display:flex;gap:10px;align-items:center}.quick:hover{border-color:#cbb28b}.quick .qico{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#f0e5d2;color:#8c6837;font-size:17px}.quick strong{display:block;font-size:13px}.quick small{color:var(--muted);font-size:11px}.section-title{font:23px Georgia,serif;margin:0 0 5px}.section-desc{color:var(--muted);margin:0 0 20px;font-size:13px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.toolbar input{flex:1;min-width:180px}.field, input, select, textarea{border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 11px;color:var(--ink);width:100%}.field-label{display:block;font-size:12px;color:var(--muted);margin:12px 0 6px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.full{grid-column:1/-1}.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}.setting-row{display:flex;justify-content:space-between;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}.setting-row:last-child{border-bottom:0}.setting-row strong{display:block;font-size:14px}.setting-row small{color:var(--muted)}.modal-backdrop{position:fixed;inset:0;background:#17151288;display:none;align-items:center;justify-content:center;padding:16px;z-index:10}.modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:16px;width:min(520px,100%);max-height:90vh;overflow:auto;padding:23px;box-shadow:0 20px 70px #0003}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}.modal-head h3{font:22px Georgia,serif;margin:0}.close{border:0;background:#f4f1ec;border-radius:50%;width:34px;height:34px;font-size:18px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#24211d;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:20;font-size:13px}.mobile-nav{display:none}
+@media(max-width:900px){.sidebar{width:210px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}}
+@media(max-width:620px){.app{display:block}.sidebar{display:none}main{padding:22px 15px 95px}.topbar{align-items:flex-start}.top-right{flex-direction:column;align-items:flex-end}.date-chip{display:none}.stats{gap:9px}.stat{padding:14px}.stat-value{font-size:23px}.panel{padding:15px}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#211f1c;color:#fff;z-index:5;overflow-x:auto;padding:7px 5px calc(7px + env(safe-area-inset-bottom));gap:2px}.mobile-nav button{flex:1;min-width:54px;border:0;background:transparent;color:#c9c2b7;font-size:10px;padding:6px 3px;display:grid;gap:3px;justify-items:center}.mobile-nav button.active{color:#e4c38a}.mobile-nav span{font-size:17px}.quick-grid{gap:8px}.quick{padding:10px}.quick .qico{width:31px;height:31px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.section-title{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="monogram">AN</div><h1>Art By Nar</h1><p>Studio Management</p></div>
+  <nav class="nav" id="sideNav"></nav>
+  <div class="side-note"><strong>✦ Private & Offline-first</strong>Prototype data stays in this browser on this device. Export a backup before clearing browser data.</div>
+</aside>
+<main>
+  <header class="topbar"><div><div class="eyebrow">ART BY NAR · MANAGEMENT</div><h2 id="pageTitle">Studio Overview</h2></div><div class="top-right"><div class="date-chip" id="today"></div><button class="primary" id="headerAction">＋ New Booking</button></div></header>
+  <div id="content"></div>
+</main>
+<nav class="mobile-nav" id="mobileNav"></nav>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Add item</h3><button class="close" id="closeModal">×</button></div><div id="modalBody"></div><div class="modal-actions"><button class="secondary" id="cancelModal">Cancel</button><button class="primary" id="saveModal">Save</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const navItems=[
+ {id:'dashboard',label:'Dashboard',icon:'⌂',title:'Studio Overview'},
+ {id:'bookings',label:'Bookings',icon:'▦',title:'Bookings'},
+ {id:'customers',label:'Customers',icon:'♙',title:'Customers'},
+ {id:'payments',label:'Payments',icon:'◈',title:'Payments'},
+ {id:'expenses',label:'Expenses',icon:'↘',title:'Expenses'},
+ {id:'academy',label:'Events & Academy',icon:'✦',title:'Events & Academy'},
+ {id:'settings',label:'Settings',icon:'⚙',title:'Settings'}
+];
+const initial={
+ customers:[
+  {id:1,name:'May Thiri',phone:'09 123 456 789',note:'Bridal client'},
+  {id:2,name:'Ei Mon',phone:'09 987 654 321',note:'Makeup booking'},
+  {id:3,name:'Thazin Win',phone:'09 555 111 222',note:'Returning customer'}
+ ],
+ bookings:[
+  {id:1,customer:'May Thiri',service:'Bridal Makeup',date:todayISO(),time:'09:00',price:250000,status:'Confirmed'},
+  {id:2,customer:'Ei Mon',service:'Engagement Makeup',date:todayISO(),time:'13:30',price:150000,status:'Pending'},
+  {id:3,customer:'Thazin Win',service:'Party Makeup',date:tomorrowISO(),time:'15:00',price:80000,status:'Confirmed'}
+ ],
+ payments:[{id:1,customer:'May Thiri',description:'Bridal Makeup deposit',amount:100000,date:todayISO(),method:'Cash',status:'Paid'}],
+ expenses:[{id:1,category:'Products',description:'Makeup supplies',amount:85000,date:todayISO()}],
+ academy:[{id:1,title:'Basic to Advanced Makeup Course',type:'Course',date:tomorrowISO(),fee:1000000,status:'Open'}],
+ settings:{studio:'Art By Nar Makeup Studio',currency:'MMK',pinEnabled:false}
+};
+function todayISO(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function tomorrowISO(){let d=new Date();d.setDate(d.getDate()+1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+let state;
+try{state=JSON.parse(localStorage.getItem('artByNarPOSPrototype'))||structuredClone(initial)}catch(e){state=structuredClone(initial)}
+let page='dashboard', modalType=null;
+const money=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(Number(n||0))+' Ks';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function persist(){localStorage.setItem('artByNarPOSPrototype',JSON.stringify(state))}
+function toast(s){const t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function dateLabel(s){if(!s)return '—';return new Date(s+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
+function statusPill(s){let c=s==='Paid'||s==='Confirmed'||s==='Open'?'paid':s==='Pending'?'pending':'';return `<span class="pill ${c}">${esc(s)}</span>`}
+function navButton(n){return `<button data-page="${n.id}" class="${page===n.id?'active':''}"><span class="ico">${n.icon}</span>${n.label}</button>`}
+function drawNav(){document.getElementById('sideNav').innerHTML=navItems.map(navButton).join('');document.getElementById('mobileNav').innerHTML=navItems.map(n=>`<button data-page="${n.id}" class="${page===n.id?'active':''}"><span>${n.icon}</span>${n.id==='academy'?'Academy':n.label}</button>`).join('');document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page))}
+function go(p){page=p;render()}
+function actionForPage(){return ({dashboard:['＋ New Booking','booking'],bookings:['＋ New Booking','booking'],customers:['＋ Add Customer','customer'],payments:['＋ Add Payment','payment'],expenses:['＋ Add Expense','expense'],academy:['＋ Add Event','academy'],settings:['Export Backup','backup']})[page]||['＋ Add','customer']}
+function render(){
+ drawNav();
+ document.getElementById('today').textContent=new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+ document.getElementById('pageTitle').textContent=navItems.find(n=>n.id===page).title;
+ const a=actionForPage(),btn=document.getElementById('headerAction');btn.textContent=a[0];btn.onclick=()=>a[1]==='backup'?exportBackup():openModal(a[1]);
+ const c=document.getElementById('content');
+ if(page==='dashboard')c.innerHTML=dashboard();
+ if(page==='bookings')c.innerHTML=tablePage('Bookings','Appointments and makeup services','bookings',['Client','Service','Date','Time','Price','Status'],r=>[r.customer,r.service,dateLabel(r.date),r.time,money(r.price),statusPill(r.status)],'No bookings yet.');
+ if(page==='customers')c.innerHTML=tablePage('Customers','Keep client contact details in one place','customers',['Name','Phone','Notes'],r=>[r.name,r.phone||'—',r.note||'—'],'No customers yet.');
+ if(page==='payments')c.innerHTML=tablePage('Payments','Track deposits and completed payments','payments',['Client','Description','Date','Method','Amount','Status'],r=>[r.customer,r.description,dateLabel(r.date),r.method,money(r.amount),statusPill(r.status)],'No payments recorded yet.');
+ if(page==='expenses')c.innerHTML=tablePage('Expenses','Monitor studio operating costs','expenses',['Category','Description','Date','Amount'],r=>[r.category,r.description,dateLabel(r.date),money(r.amount)],'No expenses recorded yet.');
+ if(page==='academy')c.innerHTML=tablePage('Events & Academy','Manage classes, master classes and studio events','academy',['Event / Course','Type','Date','Fee','Status'],r=>[r.title,r.type,dateLabel(r.date),money(r.fee),statusPill(r.status)],'No events or courses added yet.');
+ if(page==='settings')c.innerHTML=settingsPage();
+ c.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>openModal(b.dataset.add));
+ c.querySelectorAll('[data-export]').forEach(b=>b.onclick=exportBackup);
+ c.querySelectorAll('[data-import]').forEach(b=>b.onclick=()=>document.getElementById('importFile').click());
+}
+function dashboard(){
+ const revenue=state.payments.filter(p=>p.status==='Paid').reduce((a,p)=>a+Number(p.amount),0);
+ const expenses=state.expenses.reduce((a,p)=>a+Number(p.amount),0);
+ const todays=state.bookings.filter(b=>b.date===todayISO()).length;
+ const upcoming=[...state.bookings].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).slice(0,5);
+ return `<div class="stats">
+ <div class="stat"><div class="stat-label">Today's Bookings</div><div class="stat-value">${todays}</div><div class="stat-foot">Appointments scheduled today</div></div>
+ <div class="stat"><div class="stat-label">Recorded Payments</div><div class="stat-value">${money(revenue)}</div><div class="stat-foot">All payments marked paid</div></div>
+ <div class="stat"><div class="stat-label">Studio Expenses</div><div class="stat-value">${money(expenses)}</div><div class="stat-foot">Total recorded expenses</div></div>
+ <div class="stat"><div class="stat-label">Customers</div><div class="stat-value">${state.customers.length}</div><div class="stat-foot">Saved client profiles</div></div>
+ </div><div class="layout"><div>
+ <section class="panel"><div class="panel-head"><div><h3>Upcoming Bookings</h3><div class="subtle">Your next appointments</div></div><button class="text-link" onclick="go('bookings')">View all →</button></div>
+ ${upcoming.length?`<div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody>${upcoming.map(b=>`<tr><td><strong>${esc(b.customer)}</strong></td><td>${esc(b.service)}</td><td>${dateLabel(b.date)}<br><span class="subtle">${esc(b.time)}</span></td><td>${statusPill(b.status)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No bookings yet. Add your first appointment.</div>'}
+ </section><section class="panel"><div class="panel-head"><h3>Quick Actions</h3><span class="subtle">Common tasks</span></div><div class="quick-grid">
+ <button class="quick" data-add="booking"><span class="qico">▦</span><span><strong>New Booking</strong><small>Schedule a client</small></span></button>
+ <button class="quick" data-add="customer"><span class="qico">♙</span><span><strong>Add Customer</strong><small>Save client details</small></span></button>
+ <button class="quick" data-add="payment"><span class="qico">◈</span><span><strong>Record Payment</strong><small>Log a transaction</small></span></button>
+ <button class="quick" data-add="expense"><span class="qico">↘</span><span><strong>Add Expense</strong><small>Track studio costs</small></span></button>
+ </div></section></div><div>
+ <section class="panel"><div class="panel-head"><h3>Studio Snapshot</h3><span class="subtle">Current totals</span></div>
+ <div class="setting-row"><div><strong>Bookings</strong><small>All saved appointments</small></div><strong>${state.bookings.length}</strong></div>
+ <div class="setting-row"><div><strong>Payments</strong><small>Transactions recorded</small></div><strong>${state.payments.length}</strong></div>
+ <div class="setting-row"><div><strong>Academy / Events</strong><small>Courses and events</small></div><strong>${state.academy.length}</strong></div>
+ <div class="setting-row"><div><strong>Balance overview</strong><small>Paid income minus expenses</small></div><strong>${money(revenue-expenses)}</strong></div>
+ </section><section class="panel"><div class="panel-head"><h3>Data & Backup</h3></div><p class="subtle">This prototype saves data in this browser on this device. Back up regularly, especially before clearing browser data.</p><button class="secondary" data-export>Export Backup (.json)</button></section>
+ </div></div>`;
+}
+function tablePage(title,desc,key,headers,rowFn,empty){
+ const rows=state[key]||[];
+ return `<h3 class="section-title">${title}</h3><p class="section-desc">${desc}</p><div class="panel"><div class="toolbar"><input id="tableSearch" placeholder="Search ${title.toLowerCase()}..." aria-label="Search ${title}"><button class="primary" data-add="${key==='bookings'?'booking':key==='customers'?'customer':key==='payments'?'payment':key==='expenses'?'expense':'academy'}">＋ Add New</button></div><div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody id="tableRows">${rows.length?rows.map(r=>`<tr>${rowFn(r).map(v=>`<td>${v}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${headers.length}" class="empty">${empty}</td></tr>`}</tbody></table></div></div>`;
+}
+function settingsPage(){return `<h3 class="section-title">Settings</h3><p class="section-desc">Studio preferences, local data and backup options.</p><div class="panel"><div class="panel-head"><h3>Studio Preferences</h3></div><label class="field-label">Studio name</label><input id="studioName" value="${esc(state.settings.studio)}"><label class="field-label">Currency display</label><select id="currency"><option value="MMK" ${state.settings.currency==='MMK'?'selected':''}>Myanmar Kyat (Ks)</option></select><div class="modal-actions"><button class="primary" onclick="saveSettings()">Save Settings</button></div></div><div class="panel"><div class="panel-head"><h3>Backup & Restore</h3></div><p class="subtle">Export a JSON backup file and keep it somewhere safe. Import replaces the data currently stored in this browser, so only restore a backup you trust.</p><div class="toolbar"><button class="primary" data-export>Export Backup</button><button class="secondary" data-import>Import Backup</button><input type="file" id="importFile" accept=".json,application/json" style="display:none"></div><div class="setting-row"><div><strong>Storage</strong><small>Browser local storage on this device</small></div><span class="pill">Local</span></div><div class="setting-row"><div><strong>Cloud sync</strong><small>Not included in this prototype</small></div><span class="pill">Off</span></div></div><div class="panel"><div class="panel-head"><h3>Prototype Notice</h3></div><p class="subtle">This is a functional demo, not a finished or security-audited POS system. Do not enter real sensitive customer data. PIN lock, automatic daily backup reminders, encrypted backup and full native iPhone installation are not implemented here.</p><button class="secondary" onclick="if(confirm('Clear all prototype data and restore demo sample data?')){state=structuredClone(initial);persist();render();toast('Demo data restored')}">Restore Demo Data</button></div>`}
+function saveSettings(){state.settings.studio=document.getElementById('studioName').value.trim()||'Art By Nar Makeup Studio';state.settings.currency=document.getElementById('currency').value;persist();toast('Settings saved');render()}
+function fieldsFor(type){
+ const customerOptions=state.customers.map(c=>`<option value="${esc(c.name)}">${esc(c.name)}</option>`).join('');
+ const commonDate=`<label class="field-label">Date</label><input name="date" type="date" value="${todayISO()}" required>`;
+ if(type==='customer')return `<div class="form-grid"><div class="full"><label class="field-label">Customer name *</label><input name="name" required placeholder="Full name"></div><div class="full"><label class="field-label">Phone number</label><input name="phone" type="tel" placeholder="09..."></div><div class="full"><label class="field-label">Notes</label><textarea name="note" rows="2" placeholder="Optional notes"></textarea></div></div>`;
+ if(type==='booking')return `<div class="form-grid"><div class="full"><label class="field-label">Client *</label><input name="customer" list="customerList" required placeholder="Enter or select a client"><datalist id="customerList">${customerOptions}</datalist></div><div class="full"><label class="field-label">Service *</label><select name="service" required><option>Bridal Makeup</option><option>Engagement Makeup</option><option>Party Makeup</option><option>Hair Styling</option><option>Makeup Course</option><option>Other</option></select></div><div>${commonDate}</div><div><label class="field-label">Time</label><input name="time" type="time" value="10:00"></div><div class="full"><label class="field-label">Price (Ks)</label><input name="price" type="number" min="0" value="0" required></div><div class="full"><label class="field-label">Status</label><select name="status"><option>Confirmed</option><option>Pending</option><option>Completed</option><option>Cancelled</option></select></div></div>`;
+ if(type==='payment')return `<div class="form-grid"><div class="full"><label class="field-label">Client *</label><input name="customer" list="customerList" required placeholder="Enter client name"><datalist id="customerList">${customerOptions}</datalist></div><div class="full"><label class="field-label">Description *</label><input name="description" required placeholder="e.g. Bridal makeup deposit"></div><div>${commonDate}</div><div><label class="field-label">Method</label><select name="method"><option>Cash</option><option>Mobile Banking</option><option>Bank Transfer</option><option>Other</option></select></div><div class="full"><label class="field-label">Amount (Ks) *</label><input name="amount" type="number" min="0" required value="0"></div><div class="full"><label class="field-label">Status</label><select name="status"><option>Paid</option><option>Pending</option></select></div></div>`;
+ if(type==='expense')return `<div class="form-grid"><div class="full"><label class="field-label">Category</label><select name="category"><option>Products</option><option>Rent</option><option>Salary</option><option>Utilities</option><option>Marketing</option><option>Transport</option><option>Other</option></select></div><div class="full"><label class="field-label">Description *</label><input name="description" required placeholder="What was the expense?"></div><div class="full">${commonDate}</div><div class="full"><label class="field-label">Amount (Ks) *</label><input name="amount" type="number" min="0" required value="0"></div></div>`;
+ if(type==='academy')return `<div class="form-grid"><div class="full"><label class="field-label">Event or course title *</label><input name="title" required placeholder="e.g. 3 Days Master Class"></div><div><label class="field-label">Type</label><select name="type"><option>Course</option><option>Master Class</option><option>Event</option><option>Wedding Fair</option></select></div><div><label class="field-label">Status</label><select name="status"><option>Open</option><option>Pending</option><option>Closed</option></select></div><div class="full">${commonDate}</div><div class="full"><label class="field-label">Fee (Ks)</label><input name="fee" type="number" min="0" value="0"></div></div>`;
+ return '';
+}
+function openModal(type){modalType=type;const names={customer:'Add Customer',booking:'New Booking',payment:'Record Payment',expense:'Add Expense',academy:'Add Event / Course'};document.getElementById('modalTitle').textContent=names[type]||'Add item';document.getElementById('modalBody').innerHTML=fieldsFor(type);document.getElementById('modalBackdrop').classList.add('show')}
+function closeModal(){document.getElementById('modalBackdrop').classList.remove('show');modalType=null}
+function saveModal(){
+ const form=document.getElementById('modalBody');const inputs=[...form.querySelectorAll('input,select,textarea')];for(const i of inputs){if(i.required&&!i.value.trim()){i.focus();toast('Please fill in required fields');return}}
+ const d={};inputs.forEach(i=>{if(i.name)d[i.name]=i.value});
+ if(modalType==='customer')state.customers.unshift({id:Date.now(),name:d.name,phone:d.phone,note:d.note});
+ if(modalType==='booking')state.bookings.unshift({id:Date.now(),...d,price:Number(d.price||0)});
+ if(modalType==='payment')state.payments.unshift({id:Date.now(),...d,amount:Number(d.amount||0)});
+ if(modalType==='expense')state.expenses.unshift({id:Date.now(),...d,amount:Number(d.amount||0)});
+ if(modalType==='academy')state.academy.unshift({id:Date.now(),...d,fee:Number(d.fee||0)});
+ persist();closeModal();render();toast('Saved on this device');
+}
+function exportBackup(){const blob=new Blob([JSON.stringify({app:'Art By Nar POS Prototype',version:1,exportedAt:new Date().toISOString(),data:state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`art-by-nar-backup-${todayISO()}.json`;a.click();URL.revokeObjectURL(url);toast('Backup export started')}
+document.addEventListener('change',e=>{if(e.target.id!=='importFile')return;const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const obj=JSON.parse(reader.result);const data=obj.data||obj;if(!data.customers||!data.bookings||!data.payments||!data.expenses||!data.academy)throw Error('Invalid');if(confirm('Restore this backup? Current prototype data will be replaced.')){state=data;persist();render();toast('Backup restored')}}catch(err){toast('Invalid backup file')}e.target.value=''};reader.readAsText(file)});
+document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal;document.getElementById('saveModal').onclick=saveModal;
+document.getElementById('modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop')closeModal()});
+document.addEventListener('click',e=>{const add=e.target.closest('[data-add]');if(add&&page!=='dashboard')openModal(add.dataset.add)});
+document.getElementById('content').addEventListener('input',e=>{if(e.target.id==='tableSearch'){const q=e.target.value.toLowerCase();document.querySelectorAll('#tableRows tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none')}})
+render();
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
