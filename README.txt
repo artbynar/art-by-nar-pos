@@ -1,21 +1,28 @@
-ART BY NAR POS — PWA PACKAGE
+ART BY NAR POS — PIN & BACKUP UPDATE
 
-This package prepares the current browser prototype for Home Screen installation as a Progressive Web App (PWA).
+This is a browser-based prototype, not a production-secure POS system.
 
-HOW TO PUBLISH (one-time internet setup)
-1. On your Windows PC, sign in to GitHub and create a NEW repository.
-2. For the easiest GitHub Pages setup, set the repository to Public. Do not put private customer data in this repository.
-3. Upload these files to the repository root: index.html, manifest.webmanifest, sw.js, icon-192.png, icon-512.png.
-4. Open repository Settings > Pages.
-5. Under Build and deployment, choose Deploy from a branch, select main and / (root), then Save.
-6. Wait for the published URL shown on the Pages settings screen. It should be HTTPS.
-7. Open that URL on the iPhone in Safari. Tap Share > Add to Home Screen, leave Open as Web App enabled if shown, then tap Add.
-8. Open it from the new Home Screen icon once while online so the service worker can cache the app shell. Then test in Airplane Mode.
+WHAT'S NEW
+- Optional 4–8 digit PIN prompt when the app is opened.
+- Set up/change PIN, lock now, and disable PIN from Settings.
+- PIN is stored as a salted SHA-256 hash in this browser, not as plain text.
+- Daily backup reminder appears in Settings if no backup has been recorded or the last one is older than 24 hours.
+- Export JSON backup and import an existing JSON backup.
+- Service-worker cache version bumped so the updated app can be fetched.
 
-IMPORTANT
-- This is still the existing prototype wrapped as a PWA, not a completed production POS.
-- Data is stored locally in each browser/app context. It does not automatically sync between Windows and iPhone.
-- Browser storage can be lost; export backups and test restore.
-- The prototype's JSON backup is not encrypted. Do not enter real sensitive customer data until the production build has proper security and backups.
-- The service worker caches the app shell only; do not assume all features or data are available offline until tested on the actual iPhone.
-- A public GitHub Pages site means the app code is public. Do not upload customer records, backups, passwords or secrets.
+IMPORTANT LIMITATIONS
+- PIN is only a basic local access barrier. It is not strong security; someone with access to the browser storage or source files may bypass it.
+- Backup JSON files are NOT encrypted. Store them securely.
+- The reminder checks when the app is opened/settings are viewed; it is not a background push notification.
+- Data remains in local browser storage on each device. There is no Windows/iPhone sync.
+- Do not use real sensitive customer or payment information until the app has been upgraded and security-reviewed.
+
+HOW TO UPDATE THE LIVE GITHUB PAGES SITE
+1. Open your repository: https://github.com/artbynar/art-by-nar-pos
+2. For each existing file, open it, click the pencil/Edit button, and replace its contents if editing text files; for binary icons, no change is needed.
+   EASIER OPTION: Repository > Add file > Upload files, upload the updated index.html and sw.js from this package, then commit changes. If GitHub asks whether to replace existing files, confirm.
+3. Ensure index.html, sw.js, manifest.webmanifest, icon-192.png, and icon-512.png are all in the repository root.
+4. Wait 1–3 minutes. On iPhone, close the installed web app fully, reopen it while online, and refresh if possible. If it still shows the old version, open the website in Safari first and reload; service-worker updates can take a short while.
+5. Open Settings in Art By Nar POS > Set up PIN. Choose a PIN and confirm it. Save a backup from Settings > Export Backup and keep the JSON file somewhere safe.
+
+NOTE: If you already have real data in the old browser version, export a backup before changing app files. The update is designed to keep the same local storage key, but keep a backup anyway.
