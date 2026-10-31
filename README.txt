@@ -1,16 +1,24 @@
-ART BY NAR POS — CUSTOMER & BOOKING FORM UPDATE
+ART BY NAR POS — BOOKING / DEPOSIT / TRANSACTION UPDATE
 
-This package contains the updated index.html only. It adds:
-- Customer: Name, Phone, Address, VIP Member (Yes/No), Notes
-- Booking service options: Bridal Makeup ( Normal ), Bridal Makeup ( Premium ), Bridal Makeup ( Luxury )
-- Booking location: Studio / Outside
-- Booking Note field
+Files included:
+- index.html: updated POS app
+- sw.js: bumped service worker cache version so devices can fetch the new app shell
 
-HOW TO UPDATE GITHUB PAGES
-1. Before updating, open your current POS and export a JSON backup from Settings.
-2. Open https://github.com/artbynar/art-by-nar-pos
-3. Open index.html, use Edit (pencil), then replace its entire contents with this package's index.html content; OR use Add file > Upload files and upload index.html to the repository root, confirming replacement of the existing file.
-4. Commit changes.
-5. Wait for GitHub Pages to publish, then refresh the POS.
+Install/update on GitHub:
+1. Back up POS data from Settings > Export Backup on each device before updating.
+2. In the GitHub repository, replace the existing index.html with this index.html.
+3. Replace the existing sw.js with this sw.js.
+4. Commit changes to the main branch.
+5. Wait for GitHub Pages to deploy, then refresh the website on devices.
 
-Existing localStorage data is designed to remain in the browser because the storage key is unchanged. Still, export a backup before updating. This is a browser-local prototype; data does not sync across devices.
+Features:
+- Client name field suggests saved customer names; matching profile details are previewed.
+- New client names used in bookings are saved to Customers.
+- Booking has Deposit status option, total price, deposit received, and red remaining balance.
+- Booking form can record an incoming or outgoing transaction.
+- Incoming transactions appear in Payments; outgoing transactions appear in Expenses.
+- Booking transaction history is visible when editing that booking.
+
+Important:
+- Existing data is stored in each browser/device and does not sync automatically.
+- Keep backups before replacing files or clearing website data.
