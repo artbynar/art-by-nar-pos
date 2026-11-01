@@ -1,0 +1,11 @@
+create extension if not exists pgcrypto;
+create table if not exists public.customers(id uuid primary key default gen_random_uuid(),name text not null,phone text,email text,notes text,created_at timestamptz not null default now());
+create table if not exists public.bookings(id uuid primary key default gen_random_uuid(),client_name text not null,service text not null,booking_date date not null,booking_time time,total_amount numeric(14,2) not null default 0 check(total_amount>=0),deposit_amount numeric(14,2) not null default 0 check(deposit_amount>=0 and deposit_amount<=total_amount),status text not null default 'Pending' check(status in('Pending','Deposit','Confirmed','Completed','Cancelled')),notes text,created_at timestamptz not null default now());
+create table if not exists public.transactions(id uuid primary key default gen_random_uuid(),type text not null check(type in('in','out')),category text not null,amount numeric(14,2) not null check(amount>0),transaction_date timestamptz not null default now(),note text,booking_id uuid references public.bookings(id) on delete set null,created_at timestamptz not null default now());
+create index if not exists bookings_date_idx on public.bookings(booking_date desc);
+create index if not exists customers_name_idx on public.customers(name);
+create index if not exists transactions_date_idx on public.transactions(transaction_date desc);
+alter table public.customers enable row level security; alter table public.bookings enable row level security; alter table public.transactions enable row level security;
+create policy "Authenticated users manage customers" on public.customers for all to authenticated using(true) with check(true);
+create policy "Authenticated users manage bookings" on public.bookings for all to authenticated using(true) with check(true);
+create policy "Authenticated users manage transactions" on public.transactions for all to authenticated using(true) with check(true);
