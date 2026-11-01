@@ -13,7 +13,7 @@
 const URL="https://bkowygfksnafjnmwhilf.supabase.co"; KEY="sb_publishable_RSuuWnhhWmLw8_ibPGlnjQ_FkQGEYyB";
 let db=null, records={customers:[],bookings:[],transactions:[]}, session=null;
 const $=x=>document.getElementById(x), configured=URL.startsWith("https://")&&!URL.includes("YOUR_")&&!KEY.includes("YOUR_");
-if(configured&&window.supabase){db=window.supabase.createClient(URL,KEY);$("setup").classList.add("hidden")}else $("setup").classList.remove("hidden");{db=window.supabase.createClient(URL,KEY);$("setup").classList.add("hidden")}else $("setup").classList.remove("hidden");db=window.supabase.createClient(URL,KEY);else $("setup").classList.remove("hidden");
+if(configured&&window.supabase){db=window.supabase.createClient(URL,KEY);$("setup").classList.add("hidden")}else $("setup").classList.remove("hidden");
 const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money=n=>"Ks "+Number(n||0).toLocaleString("en-US"), date=s=>s?new Date(s+"T00:00:00").toLocaleDateString():"—";
 function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2600)}
