@@ -10,7 +10,7 @@
 <section id="page-transactions" class="page"><div class="panel"><div class="top"><h2>Cashflow Ledger</h2><div class="toolbar"><input id="ts" placeholder="Search transactions"><button id="addT" class="gold">＋ Money In</button></div></div><div id="transactions" class="tablewrap"></div></div></section></main></div>
 <div id="modal" class="modal"><div class="modalbox"><div class="top"><h2 id="mtitle">New record</h2><button id="close" class="ghost">✕</button></div><form id="mf"></form></div></div><div id="toast" class="toast"></div>
 <script>
-const URL="https://bkowygfksnafjnmwhilf.supabase.co", KEY="sb_publishable_RSuuWnhhWmLw8_ibPGlnjQ_FkQGEYyB";
+const URL="https://bkowygfksnafjnmwhilf.supabase.co"; KEY="sb_publishable_RSuuWnhhWmLw8_ibPGlnjQ_FkQGEYyB";
 let db=null, records={customers:[],bookings:[],transactions:[]}, session=null;
 const $=x=>document.getElementById(x), configured=URL.startsWith("https://")&&!URL.includes("YOUR_")&&!KEY.includes("YOUR_");
 if(configured&&window.supabase)db=window.supabase.createClient(URL,KEY);else $("setup").classList.remove("hidden");
